@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:title="One Touch Cache Cleaning"
+        android:icon="@drawable/ic_touch_app_black_48dp"
+        android:id="@+id/nav_menu_clean"/>
+
+
+    <item
+        android:title="Usage"
+        android:icon="@drawable/ic_equalizer_black_36dp"
+        android:id="@+id/nav_menu_graph" />
+
+    <item
+        android:title="Power Saver"
+        android:icon="@drawable/ic_battery_alert_black_48dp"
+        android:id="@+id/nav_menu_power_saver" />
+
+    <item
+        android:title="Battery Alarm !"
+        android:id="@+id/nav_menu_alarm"
+        android:icon="@drawable/ic_alarm_black_48dp" />
+
+    <item
+        android:title="Free Apps Around You"
+        android:icon="@drawable/ic_card_giftcard_white_36dp"
+        android:id="@+id/nav_menu_explore"
+        />
+
+    <item
+        android:title="Rate us"
+        android:id="@+id/nav_rate"
+        android:icon="@drawable/ic_rate_32dp"
+        />
+
+    <item
+        android:title="Share this app"
+        android:id="@+id/nav_share"
+        android:icon="@drawable/ic_share_black_48dp"
+        />
+
+    <item
+        android:title="Help"
+        android:id="@+id/nav_menu_help"
+        android:icon="@drawable/ic_help_black_48dp" />
+
+    <item
+        android:title="About"
+        android:id="@+id/nav_menu_about"
+        android:icon="@drawable/ic_info_black_36dp"
+        />
+
+    <item android:title="Exit"
+        android:id="@+id/nav_menu_exit"
+        android:icon="@drawable/ic_exit_to_app_black_48dp"
+        />
+
+
+
+</menu>

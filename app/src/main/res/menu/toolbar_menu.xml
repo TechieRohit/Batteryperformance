@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity_Main">
+
+        <!--<item android:title="Exit"
+              android:id="@+id/tool_exit"
+            app:showAsAction="always"
+            android:orderInCategory="100"
+
+            />-->
+
+        <item
+            android:title="explore"
+            android:orderInCategory="100"
+            app:showAsAction="always"
+            android:id="@+id/explore"
+              android:icon="@drawable/ic_card_giftcard_white_36dp"
+            />
+
+</menu>

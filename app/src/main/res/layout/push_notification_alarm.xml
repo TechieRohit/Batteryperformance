@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp"
+    android:id="@+id/notification"
+    android:orientation="vertical"
+    android:background="#3b5998"
+    android:weightSum="5.2">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3b5998"
+        android:weightSum="5.2">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/notification_icon"
+            android:src="@drawable/ic_access_alarms_black_48dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Battery Alarm !"
+                android:id="@+id/notification_time_left_1"
+                android:layout_weight="1.5"
+                android:textColor="#ff050505"
+                android:textSize="16dp"
+                android:typeface="serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="9dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Battery Alarm is On\nClick here to open battery alarm and switch it off..."
+                android:id="@+id/notification_time_left"
+                android:layout_weight="1"
+                android:textColor="#fffffefa"
+                android:textSize="11dp"
+                android:typeface="serif"
+                android:paddingLeft="9dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

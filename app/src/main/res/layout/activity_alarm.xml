@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar_alarm"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:background="#3b5998"
+        app:title=" "
+        >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Battery Alarm"
+        android:id="@+id/toolbar_title_a"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#ffffffff" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="218dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Battery Alarm !"
+            android:id="@+id/battery_alarm"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/jk"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/set_to_desired"
+                android:layout_weight="1"
+                android:text="Set the Battery Alarm to Desired Percentage"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:layout_marginLeft="50dp" />
+
+            <Switch
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/on_or_off"
+                android:layout_weight="2"
+                android:layout_marginRight="15dp"
+                android:paddingRight="15dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <!-- <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp" />-->
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/alarm_image"
+            android:layout_weight="5"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:src="@drawable/ic_alarm_off_black_48dp"
+            android:paddingBottom="20dp" />
+
+        <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            app:dsb_min="0"
+            app:dsb_max="100"
+            app:dsb_indicatorFormatter="%d"
+            android:id="@+id/discrete_seek"
+            android:layout_weight="1"
+           />
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/toast"
+            android:layout_gravity="center_vertical"
+            android:text="Alarm is off"
+            android:layout_weight="1"
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

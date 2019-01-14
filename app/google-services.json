@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "743182393171",
+    "firebase_url": "https://battery-performance.firebaseio.com",
+    "project_id": "battery-performance",
+    "storage_bucket": "battery-performance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743182393171:android:adb0e954d3c0ab2a",
+        "android_client_info": {
+          "package_name": "com.example.codebreaker.batteryperformance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743182393171-s2g9d52vpk8vla7pbco2b6vuhotcgg2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACJDCUPJHL3TS1mE_wuu7DAPbrtYW47HA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

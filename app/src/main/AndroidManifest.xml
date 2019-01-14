@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="performance.cleaner.codebreaker.batteryperformance" >
+
+    <uses-permission android:name="android.permission.BATTERY_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+
+    <application
+        android:name=".Google_Tracker.AnalyticsApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/final_9"
+        android:label="Battery Performance"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label" >
+
+        <activity
+            android:name=".Activities.Activity_Main"
+            android:label="Battery Performance"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.Help" >
+        </activity>
+
+        <service android:name="com.mobvista.msdk.shell.MVService" >
+            <intent-filter>
+                <action android:name="com.mobvista.msdk.download.action" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".Services.Ringtone_service"
+            android:enabled="true" >
+        </service>
+        <service
+            android:name=".Services.time_since_last_charged"
+            android:enabled="true" >
+        </service>
+        <service
+            android:name=".Services.time_left"
+            android:enabled="true" >
+        </service>
+
+      <!--  <activity
+            android:name=".Activities.Alarm"
+            android:label="@string/title_activity_alarm" >
+        </activity>-->
+        <activity
+            android:name="com.mobvista.msdk.shell.MVActivity"
+            android:configChanges="keyboard|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2" >
+        </activity>
+
+        <service
+            android:name=".Services.CleanerService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name=".Activities.About"
+            android:label="@string/title_activity_about" >
+        </activity>
+
+        <activity
+            android:name=".Activities.Open_source"
+            android:label="open_source" >
+        </activity>
+        <activity
+            android:name=".Activities.Cache_Cleaning"
+            android:label="@string/title_activity_cache__cleaning" >
+        </activity>
+
+        <activity
+            android:name=".Activities.Rate_me"
+            android:label="Rate me"
+            android:theme="@style/Rate_us">
+        </activity>
+
+        <activity android:name=".Activities.Alarm" />
+
+    </application>
+
+</manifest>

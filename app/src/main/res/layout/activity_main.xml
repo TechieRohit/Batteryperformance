@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3b5998"
+        android:id="@+id/toolbar_battery"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title=" "
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        tools:context=".Activity_Main">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Battery Performance"
+        android:id="@+id/toolbar_title_m"
+        android:textSize="20dp"
+        android:textColor="#ffffffff"
+        android:textStyle="bold" />
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/drawerLayout">
+
+
+        <FrameLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/containerView" />
+
+
+
+        <!-- This one here is for navigation bar item's color and other properties -->
+        <!-- Here it is taking data from drawermenu.xml in menu folder -->
+        <android.support.design.widget.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="start"
+            android:id="@+id/nav_bar"
+            app:itemTextColor="#9fa8ec"
+            app:menu="@menu/drawermenu"
+            app:headerLayout="@layout/navigation_header"
+            android:foregroundGravity="top" />
+
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+
+</LinearLayout>

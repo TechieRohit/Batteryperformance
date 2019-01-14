@@ -1,0 +1,446 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:elastic="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:id="@+id/first_layout"
+        android:background="#ffffffff">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/lay_1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Calculating Cache..."
+                    android:id="@+id/cal_cache_1"
+                    android:layout_weight="1"
+                    android:gravity="bottom|right"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="6dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="10 %"
+                    android:id="@+id/cal_per"
+                    android:layout_weight="2"
+                    android:gravity="bottom"
+                    android:paddingBottom="5dp"
+                    android:textSize="17dp" />
+            </LinearLayout>
+
+            <com.victor.loading.book.BookLoading
+                android:id="@+id/rotateloading"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                app:loading_speed="11"
+                app:loading_width="5dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="About Cache"
+            android:id="@+id/about_cache_1"
+            android:textColor="#3b5998"
+            android:paddingLeft="10dp" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="280dp"
+            android:id="@+id/scrollView1"
+            android:scrollbars="none"
+            android:layout_weight="1"
+            android:fillViewport="false"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/s">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Cache memory is used by applications
+to store data temporarily and helps the phone to work faster and is not responsible for any lags.\nFor example Gallery store thumbnails of the images stored to show the small previews of the image in the form of cache memory.
+If the cache memory is cleared,your phone has to work again to regenerate the thumbnails.\n\nYou are advised not to clean cache memory untill unless you run out of storage.\n\nHowever there are certain cases where the application malfunctions occurs due to cache memory itself where the application malfunctions occurs due to cache memory itself where you are advised to clean cache of that particular appliation"
+                    android:id="@+id/cache_info_1"
+                    android:background="#D3D3D3"
+                    android:layout_marginTop="7dp"
+                    android:textSize="14dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_dummy"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:visibility="visible"
+            card_view:cardCornerRadius="10dp"
+            android:clickable="true"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D3D3D3"
+                android:id="@+id/dont_clean">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Clean !"
+                    android:id="@+id/clean_1"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+    <!--<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView2" />
+    </LinearLayout>-->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:id="@+id/second_layout"
+        android:background="#ffffffff">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/top_lay">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight=".8">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView3_s"
+                    android:src="@drawable/ic_delete_sweep_black_48dp"
+                    android:layout_weight="1.4"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="5dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Total Cache  :"
+                    android:id="@+id/total_cache_1"
+                    android:textSize="22dp"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="200 MB"
+                    android:paddingTop="5dp"
+                    android:id="@+id/total_cache"
+                    android:gravity="left|center"
+                    android:textSize="22dp"
+                    android:paddingLeft="10dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/TM">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView6_s"
+                    android:layout_weight="1.7"
+                    android:src="@drawable/ic_storage_black_48dp"
+                    android:padding="7dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Total Memory"
+                    android:id="@+id/total_1"
+                    android:layout_weight="1.5"
+                    android:gravity="bottom"
+                    android:paddingBottom="9dp"
+                    android:textSize="11dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:id="@+id/h"
+                    android:layout_weight=".9"
+                    android:layout_gravity="bottom"
+                    android:background="#D3D3D3" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="50 gb"
+                    android:id="@+id/total"
+                    android:layout_weight="1.6"
+                    android:paddingBottom="9dp"
+                    android:gravity="bottom"
+                    android:textSize="11dp"
+                    android:paddingLeft="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView7_s"
+                    android:layout_weight="1.7"
+                    android:src="@drawable/ic_folder_open_black_48dp"
+                    android:padding="7dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Available Memory"
+                    android:id="@+id/available_1"
+                    android:layout_weight="1.5"
+                    android:gravity="bottom"
+                    android:paddingBottom="9dp"
+                    android:textSize="11dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:id="@+id/f"
+                    android:layout_weight=".9"
+                    android:layout_gravity="bottom"
+                    android:background="#D3D3D3" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="45 gb"
+                    android:id="@+id/available"
+                    android:layout_weight="1.6"
+                    android:paddingBottom="9dp"
+                    android:gravity="bottom"
+                    android:textSize="11dp"
+                    android:paddingLeft="8dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageiew6_s"
+                    android:layout_weight="1.7"
+                    android:src="@drawable/ic_folder_black_48dp"
+                    android:padding="7dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Used Memory"
+                    android:id="@+id/used_1"
+                    android:layout_weight="1.5"
+                    android:gravity="bottom"
+                    android:paddingBottom="9dp"
+                    android:textSize="11dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:id="@+id/v"
+                    android:layout_weight=".9"
+                    android:layout_gravity="bottom"
+                    android:background="#D3D3D3" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="4.95 gb"
+                    android:id="@+id/used"
+                    android:layout_weight="1.6"
+                    android:paddingBottom="9dp"
+                    android:gravity="bottom"
+                    android:textSize="11dp"
+                    android:paddingLeft="8dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="About Cache"
+            android:id="@+id/about_cache_2"
+            android:paddingLeft="10dp"
+            android:textColor="#3b5998" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="280dp"
+            android:id="@+id/scrollView2"
+            android:scrollbars="none"
+            android:layout_weight="1"
+            android:fillViewport="false"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Cache memory is used by applications
+to store data temporarily and helps the phone to work faster and is not responsible for any lags.\nFor example Gallery store thumbnails of the images stored to show the small previews of the image in the form of cache memory.
+If the cache memory is cleared,your phone has to work again to regenerate the thumbnails.\n\nYou are advised not to clean cache memory untill unless you run out of storage.\n\nHowever there are certain cases where the application malfunctions occurs due to cache memory itself where you are advised to clean cache of that particular appliation"
+                    android:id="@+id/cache_info_2"
+                    android:background="#D3D3D3"
+                    android:layout_marginTop="7dp"
+                    android:textSize="14dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view_time_since_last_charge"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:visibility="visible"
+            card_view:cardCornerRadius="10dp"
+            android:clickable="true"
+            android:background="@drawable/ripple"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple"
+                android:id="@+id/clean">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Clean !"
+                    android:id="@+id/clean_2"
+                    android:gravity="center"
+                    android:textColor="#ffffffff" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>
