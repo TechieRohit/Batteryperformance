@@ -34,6 +34,7 @@ import performance.cleaner.codebreaker.batteryperformance.googletracker.Analytic
 import performance.cleaner.codebreaker.batteryperformance.R;
 import performance.cleaner.codebreaker.batteryperformance.service.CleanerService;
 import performance.cleaner.codebreaker.batteryperformance.utils.AppsListItem;
+import performance.cleaner.codebreaker.batteryperformance.utils.Constants;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -192,7 +193,6 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
             }
         });
 
-        /*Toast.makeText(getActivity(),"On Create view",Toast.LENGTH_SHORT).show();*/
         return cleanerView;
     }
 
@@ -232,7 +232,6 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
         setHasOptionsMenu(true);
         setRetainInstance(true);
 
-        /*Percentage.setText("10" + "%");*/
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
@@ -261,11 +260,7 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
     public void onResume() {
         updateStorageUsage();
 
-        /*Percentage.setText("35" + "%");*/
-
-        /*Toast.makeText(getActivity(),"onResume",Toast.LENGTH_SHORT).show();*/
-
-        mTracker.setScreenName("CleanerFragment");
+        mTracker.setScreenName(Constants.ScreenName.CLEANER_FRAGMENT);
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
         super.onResume();
@@ -273,9 +268,6 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
 
     @Override
     public void onPause() {
-
-        //calculating.setProgress(25);
-        /*Toast.makeText(getActivity(), "onPause", Toast.LENGTH_SHORT).show();*/
         if (mProgressDialog.isShowing())
         {
             mProgressDialog.dismiss();
@@ -294,8 +286,6 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
     }
 
     private void updateStorageUsage() {
-
-        /*Toast.makeText(getActivity(),"updateStorageUsage function called",Toast.LENGTH_LONG).show();*/
 
             StatFs stat = new StatFs(Environment.getDataDirectory().getAbsolutePath());
 
@@ -380,9 +370,6 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
     @Override
     public void onScanStarted(Context context)
     {
-        //calculating.setProgress(60);
-        /*Toast.makeText(getActivity(),"onScanStarted Function called",Toast.LENGTH_LONG).show();*/
-
         per_delay = new Handler();
         per_delay.postDelayed(new Runnable()
         {
@@ -402,27 +389,16 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
     @Override
     public void onScanProgressUpdated(Context context, int current, int max)
     {
-        //Percentage.setText("70" + "%");
-        /*Toast.makeText(getActivity(),"onScanProgressUpdated Function called",Toast.LENGTH_LONG).show();*/
-        if (isAdded())
-        {
 
-        }
     }
 
     @Override
     public void onScanCompleted(Context context, List<AppsListItem> apps)
     {
-
-
-        //mAppsListAdapter.setItems(getActivity(), apps, getSortBy(), mSearchQuery);
-        /*Toast.makeText(getActivity(),"onScanCompleted Function called",Toast.LENGTH_LONG).show();*/
         if (isAdded())
         {
             updateStorageUsage();
-           // Percentage.setText("70" + "%");
-           /*Toast.makeText(getActivity(),"onScanCompleted Function isAdded()",Toast.LENGTH_LONG).show();*/
-           //showProgressBar(false);
+
         }
         Percentage.setText("100" + " percent");
 
@@ -440,19 +416,6 @@ public class CleanerFragment extends Fragment implements CleanerService.OnAction
     @Override
     public void onCleanStarted(Context context) {
 
-        /*Toast.makeText(getActivity(),"onCleanStarted Function called",Toast.LENGTH_LONG).show();*/
-        if (isAdded()) {
-          /*  if (isProgressBarVisible()) {
-                showProgressBar(false);
-            }
-
-            if (!getActivity().isFinishing()) {
-                mProgressDialog.show();
-            }*/
-
-            /*Toast.makeText(getActivity(),"onCleanStarted Function isAdded()",Toast.LENGTH_LONG).show();*/
-
-        }
     }
 
     @Override

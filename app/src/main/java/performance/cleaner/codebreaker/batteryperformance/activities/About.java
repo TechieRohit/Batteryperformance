@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
+import performance.cleaner.codebreaker.batteryperformance.utils.Constants;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -60,7 +61,6 @@ public class About extends AppCompatActivity {
                 startActivity(to_open_source);
             }
         });
-
     }
 
 
@@ -79,7 +79,7 @@ public class About extends AppCompatActivity {
     public void onResume()
     {
         super.onResume();
-        mTracker.setScreenName("About");
+        mTracker.setScreenName(Constants.ScreenName.ABOUT);
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 

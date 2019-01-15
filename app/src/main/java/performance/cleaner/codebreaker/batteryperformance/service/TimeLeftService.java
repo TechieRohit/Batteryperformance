@@ -14,7 +14,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
-import performance.cleaner.codebreaker.batteryperformance.activities.Activity_Main;
+import performance.cleaner.codebreaker.batteryperformance.activities.MainActivity;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 
@@ -134,7 +134,7 @@ public class TimeLeftService extends Service {
         notify.setOngoing(true);
 
         //Applying click event on notification bar
-        Intent intent = new Intent(this, Activity_Main.class);
+        Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         notify.setContentIntent(pendingIntent);
 

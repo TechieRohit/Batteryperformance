@@ -17,10 +17,7 @@ import performance.cleaner.codebreaker.batteryperformance.R;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.mobvista.msdk.MobVistaConstans;
-import com.mobvista.msdk.MobVistaSDK;
-import com.mobvista.msdk.out.MobVistaSDKFactory;
-import com.mobvista.msdk.out.MvWallHandler;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +47,7 @@ public class Cache_Cleaning extends AppCompatActivity {
         setSupportActionBar(toolbar_cache);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cache_toolbar.setOnMenuItemClickListener(new android.support.v7.widget.Toolbar.OnMenuItemClickListener() {
+       /* cache_toolbar.setOnMenuItemClickListener(new android.support.v7.widget.Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
@@ -59,11 +56,10 @@ public class Cache_Cleaning extends AppCompatActivity {
                             .setCategory("Mintegral")
                             .setAction("Main Toolbar Button Clicked")
                             .build());
-                    openWall();
                 }
                 return false;
             }
-        });
+        });*/
 
         Typeface canaro = Typeface.createFromAsset(getAssets(),"commercial/Canaro-LightDEMO.otf");
         toolbar_title.setTypeface(canaro);
@@ -86,30 +82,8 @@ public class Cache_Cleaning extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        preloadWall();
-        loadHandler();
-
         mTracker.setScreenName("Cache_Cleaning");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
-
-    public void preloadWall() {
-        MobVistaSDK sdk = MobVistaSDKFactory.getMobVistaSDK();
-        Map<String, Object> preloadMap = new HashMap<String, Object>();
-        preloadMap.put(MobVistaConstans.PROPERTIES_LAYOUT_TYPE, MobVistaConstans.LAYOUT_APPWALL);
-        preloadMap.put(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");
-        sdk.preload(preloadMap);
-    }
-
-    public void loadHandler()
-    {
-        Map<String, Object> properties = MvWallHandler.getWallProperties("14445");
-        properties.put(MobVistaConstans.PROPERTIES_WALL_STATUS_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_NAVIGATION_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_TITLE_BACKGROUND_COLOR, R.color.mobvista_facebook);
-        MvWallHandler mvHandler = new MvWallHandler(properties, this);
-
-        mvHandler.load();
     }
 
     @Override
@@ -120,17 +94,4 @@ public class Cache_Cleaning extends AppCompatActivity {
         return true;
     }
 
-    public void openWall()
-    {
-        try
-        {
-            Class<?> aClass = Class
-                    .forName("com.mobvista.msdk.shell.MVActivity");
-            Intent intent = new Intent(this, aClass);
-            intent.putExtra(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");   //Unit Id
-            this.startActivity(intent);
-        } catch (Exception e) {
-            Log.e("MVActivity", "", e);
-        }
-    }
 }

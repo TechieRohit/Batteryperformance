@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
+import performance.cleaner.codebreaker.batteryperformance.utils.Constants;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -81,7 +82,7 @@ public class OpenSource extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
-        mTracker.setScreenName("OpenSource");
+        mTracker.setScreenName(Constants.ScreenName.OPEN_SOURCE);
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 

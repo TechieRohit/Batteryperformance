@@ -23,7 +23,7 @@
         tools:replace="android:label" >
 
         <activity
-            android:name=".activities.Activity_Main"
+            android:name=".activities.MainActivity"
             android:label="Battery Performance"
             android:screenOrientation="portrait" >
             <intent-filter>

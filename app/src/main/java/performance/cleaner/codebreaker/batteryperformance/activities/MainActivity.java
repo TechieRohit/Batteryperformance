@@ -11,7 +11,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -20,35 +19,28 @@ import performance.cleaner.codebreaker.batteryperformance.fragmenttriggers.Home_
 import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
 import performance.cleaner.codebreaker.batteryperformance.service.TimeLeftService;
+import performance.cleaner.codebreaker.batteryperformance.utils.Constants;
 
 import com.google.android.gms.analytics.HitBuilders;
-import com.mobvista.msdk.MobVistaConstans;
-import com.mobvista.msdk.MobVistaSDK;
-import com.mobvista.msdk.out.MobVistaSDKFactory;
-import com.mobvista.msdk.out.MvWallHandler;
-import java.util.HashMap;
-import java.util.Map;
 import android.app.Application;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
-public class Activity_Main extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
 {
     //Google Analytics
     private static GoogleAnalytics sAnalytics;
     private static Tracker sTracker;
 
-    DrawerLayout battery_performance_DrawerLayout;
-    NavigationView battery_performance_NavigationView;
-    FragmentManager battery_performance_FragmentManager_1;
-    FragmentTransaction battery_performance_FragmentTransaction_1;
-    android.support.v7.widget.Toolbar battery_toolbar;
+    DrawerLayout batteryPerformanceDrawerLayout;
+    NavigationView batteryPerformanceNavigationView;
+    FragmentManager batteryPerformanceFragmentManager;
+    FragmentTransaction batteryPerformanceFragmentTransaction;
+    android.support.v7.widget.Toolbar toolbar;
 
     private Tracker mTracker;
 
-    //Changes Made
-    //Changes Made Here
     AnalyticsApplication application = (AnalyticsApplication) getApplication();
 
     @Override
@@ -69,14 +61,12 @@ public class Activity_Main extends AppCompatActivity
         Typeface canaro = Typeface.createFromAsset(getAssets(),"commercial/Canaro-LightDEMO.otf");
         toolbar_tmain.setTypeface(canaro);
 
-        MobVistaSDK sdk = MobVistaSDKFactory.getMobVistaSDK(); Map<String,String> Map = sdk.getMVConfigurationMap("90822","44ddbfa8d4de397c612bdf09e5cb1bf2");
-        sdk.init(Map, this);
         /**
          * Setup the Toolbar
          */
-         battery_toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.toolbar_battery);
-         setSupportActionBar(battery_toolbar);
-         battery_toolbar.setOnMenuItemClickListener(new android.support.v7.widget.Toolbar.OnMenuItemClickListener() {
+         toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.toolbar_battery);
+         setSupportActionBar(toolbar);
+        /* toolbar.setOnMenuItemClickListener(new android.support.v7.widget.Toolbar.OnMenuItemClickListener() {
            @Override
            public boolean onMenuItemClick(MenuItem item) {
 
@@ -86,34 +76,35 @@ public class Activity_Main extends AppCompatActivity
                            .setCategory("Mintegral")
                            .setAction("Main Toolbar Button Clicked")
                            .build());
-                   openWall();
                }
                return false;
            }
-       });
+       });*/
 
+
+        setNavigationDrawer();
+        onClicks();
 
         /**
-         *Setup the DrawerLayout and NavigationView
+         * Setup Drawer Toggle of the Toolbar
          */
 
-        battery_performance_DrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        battery_performance_NavigationView = (NavigationView) findViewById(R.id.nav_bar);
+        Intent time_service = new Intent(MainActivity.this,TimeLeftService.class);
+        startService(time_service);
 
-        /**
-         * Lets inflate the very first fragment
-         **/
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_battery);
+        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, batteryPerformanceDrawerLayout, toolbar, R.string.app_name,
+                R.string.app_name);
 
-        battery_performance_FragmentManager_1 = getSupportFragmentManager();
-        battery_performance_FragmentTransaction_1 = battery_performance_FragmentManager_1.beginTransaction();
-        battery_performance_FragmentTransaction_1.replace(R.id.containerView, new Home_Tab()).commit();
+        batteryPerformanceDrawerLayout.setDrawerListener(mDrawerToggle);
 
+        mDrawerToggle.syncState();
 
-        /**
-         * Setup click events on the Navigation View Items.
-         */
+        setNavigationDrawer();
+    }
 
-        battery_performance_NavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+    private void onClicks() {
+        batteryPerformanceNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
             Intent graph = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY);
             Intent power_saver = new Intent(Settings.ACTION_BATTERY_SAVER_SETTINGS);
@@ -129,9 +120,9 @@ public class Activity_Main extends AppCompatActivity
                             .setAction("Cache pop up is opened up by the user")
                             .build());
 
-                    Intent to_cache = new Intent(Activity_Main.this, Cache_Cleaning.class);
+                    Intent to_cache = new Intent(MainActivity.this, Cache_Cleaning.class);
                     startActivity(to_cache);
-                    battery_performance_DrawerLayout.closeDrawers();
+                    batteryPerformanceDrawerLayout.closeDrawers();
                 }
 
                 if (menuItem.getItemId() == R.id.nav_menu_help)
@@ -140,7 +131,7 @@ public class Activity_Main extends AppCompatActivity
                             .setCategory("Help")
                             .setAction("Help Button Clicked")
                             .build());
-                    Intent help = new Intent(Activity_Main.this, Help.class);
+                    Intent help = new Intent(MainActivity.this, Help.class);
                     startActivity(help);
                 }
 
@@ -149,7 +140,6 @@ public class Activity_Main extends AppCompatActivity
                             .setCategory("Mintegral")
                             .setAction("Navigation Button Clicked")
                             .build());
-                    openWall();
                 }
 
 
@@ -160,7 +150,7 @@ public class Activity_Main extends AppCompatActivity
                             .setAction("Navigation Alarm Button Clicked")
                             .build());
 
-                    Intent alarm = new Intent(Activity_Main.this, Alarm.class);
+                    Intent alarm = new Intent(MainActivity.this, Alarm.class);
                     startActivity(alarm);
                 }
 
@@ -205,8 +195,8 @@ public class Activity_Main extends AppCompatActivity
                             .setCategory("Rate Me")
                             .setAction("Rate me Clicked")
                             .build());
-                    battery_performance_DrawerLayout.closeDrawers();
-                    startActivity(new Intent(Activity_Main.this, RateIt.class));
+                    batteryPerformanceDrawerLayout.closeDrawers();
+                    startActivity(new Intent(MainActivity.this, RateIt.class));
                 }
 
                 if (menuItem.getItemId() == R.id.nav_menu_about) {
@@ -216,7 +206,7 @@ public class Activity_Main extends AppCompatActivity
                             .setAction("Navigation About Button Clicked")
                             .build());
 
-                    Intent to_about = new Intent(Activity_Main.this, About.class);
+                    Intent to_about = new Intent(MainActivity.this, About.class);
                     startActivity(to_about);
                 }
 
@@ -228,37 +218,25 @@ public class Activity_Main extends AppCompatActivity
             }
 
         });
+    }
 
-
+    private void setNavigationDrawer() {
         /**
-         * Setup Drawer Toggle of the Toolbar
+         *Setup the DrawerLayout and NavigationView
          */
 
-        Intent time_service = new Intent(Activity_Main.this,TimeLeftService.class);
-        startService(time_service);
+        batteryPerformanceDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        batteryPerformanceNavigationView = (NavigationView) findViewById(R.id.nav_bar);
 
-        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_battery);
-        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, battery_performance_DrawerLayout, toolbar, R.string.app_name,
-                R.string.app_name);
+        /**
+         * Lets inflate the very first fragment
+         **/
 
-        battery_performance_DrawerLayout.setDrawerListener(mDrawerToggle);
-
-        mDrawerToggle.syncState();
+        batteryPerformanceFragmentManager = getSupportFragmentManager();
+        batteryPerformanceFragmentTransaction = batteryPerformanceFragmentManager.beginTransaction();
+        batteryPerformanceFragmentTransaction.replace(R.id.containerView, new Home_Tab()).commit();
     }
 
-    public void openWall()
-    {
-        try
-        {
-            Class<?> aClass = Class
-                    .forName("com.mobvista.msdk.shell.MVActivity");
-            Intent intent = new Intent(this, aClass);
-            intent.putExtra(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");   //Unit Id
-            this.startActivity(intent);
-        } catch (Exception e) {
-            Log.e("MVActivity", "", e);
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -270,31 +248,10 @@ public class Activity_Main extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
-        preloadWall();
-        loadHandler();
-
-        mTracker.setScreenName("Activity_Main");
+        mTracker.setScreenName(Constants.ScreenName.MAIN_ACTIVITY);
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
-    public void preloadWall() {
-        MobVistaSDK sdk = MobVistaSDKFactory.getMobVistaSDK();
-        Map<String, Object> preloadMap = new HashMap<String, Object>();
-        preloadMap.put(MobVistaConstans.PROPERTIES_LAYOUT_TYPE, MobVistaConstans.LAYOUT_APPWALL);
-        preloadMap.put(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");
-        sdk.preload(preloadMap);
-    }
-
-    public void loadHandler()
-    {
-        Map<String, Object> properties = MvWallHandler.getWallProperties("14445");
-        properties.put(MobVistaConstans.PROPERTIES_WALL_STATUS_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_NAVIGATION_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_TITLE_BACKGROUND_COLOR, R.color.mobvista_facebook);
-        MvWallHandler mvHandler = new MvWallHandler(properties, this);
-
-        mvHandler.load();
-    }
 
     /**
      * Gets the default {@link Tracker} for this {@link Application}.

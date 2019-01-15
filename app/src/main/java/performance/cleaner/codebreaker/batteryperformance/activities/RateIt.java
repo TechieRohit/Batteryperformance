@@ -16,10 +16,9 @@ import performance.cleaner.codebreaker.batteryperformance.R;
 
 public class RateIt extends Activity
 {
-    private RatingBar rate_me;
+    private RatingBar rateMe;
     private TextView later;
-    private TextView rate_now;
-
+    private TextView rateNow;
     float rate = 0;
 
     @Override
@@ -30,18 +29,18 @@ public class RateIt extends Activity
 
         Typeface canaro = Typeface.createFromAsset(getAssets(),"commercial/Canaro-LightDEMO.otf");
 
-        rate_me = (RatingBar)findViewById(R.id.rate_me);
+        rateMe = (RatingBar)findViewById(R.id.rate_me);
         later = (TextView)findViewById(R.id.later);
-        rate_now = (TextView)findViewById(R.id.rate_now);
+        rateNow = (TextView)findViewById(R.id.rate_now);
 
-        rate_me.setNumStars(5);
+        rateMe.setNumStars(5);
 
         TextView Love_this = (TextView)findViewById(R.id.love_this);
         TextView Please = (TextView)findViewById(R.id.please);
 
         Love_this.setTypeface(canaro);
         Please.setTypeface(canaro);
-        rate_now.setTypeface(canaro);
+        rateNow.setTypeface(canaro);
         later.setTypeface(canaro);
 
 
@@ -53,13 +52,13 @@ public class RateIt extends Activity
 
         getWindow().setLayout((int)(width*.9),(int)(height*.35));
 
-        onclicklistners();
+        onClick();
 
     }
 
-    public void onclicklistners()
+    public void onClick()
     {
-        rate_me.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+        rateMe.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 rate = rating;
@@ -75,7 +74,7 @@ public class RateIt extends Activity
             }
         });
 
-        rate_now.setOnClickListener(new View.OnClickListener()
+        rateNow.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -83,7 +82,7 @@ public class RateIt extends Activity
                 if (rate == 5)
                 {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=performance.cleaner.codebreaker.batteryperformance"));
+                    intent.setData(Uri.parse("market://details?id=" + getPackageName()));
                     startActivity(intent);
                 }
                 else

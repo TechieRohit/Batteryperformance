@@ -16,20 +16,12 @@ import performance.cleaner.codebreaker.batteryperformance.R;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.mobvista.msdk.MobVistaConstans;
-import com.mobvista.msdk.MobVistaSDK;
-import com.mobvista.msdk.out.MobVistaSDKFactory;
-import com.mobvista.msdk.out.MvWallHandler;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class Help extends AppCompatActivity {
 
-    TextView help_detail;
+    TextView helpDetails;
     TextView help;
-    Toolbar helptoolbar;
+    Toolbar helpToolbar;
 
     private Tracker mTracker;
     @Override
@@ -43,24 +35,21 @@ public class Help extends AppCompatActivity {
         /** --------  **/
 
 
-        help_detail = (TextView)findViewById(R.id.textView4);
-        helptoolbar = (Toolbar)findViewById(R.id.toolbar_help);
+        helpDetails = (TextView)findViewById(R.id.textView4);
+        helpToolbar = (Toolbar)findViewById(R.id.toolbar_help);
         help = (TextView)findViewById(R.id.help);
 
-        MobVistaSDK sdk = MobVistaSDKFactory.getMobVistaSDK(); Map<String,String> Map = sdk.getMVConfigurationMap("","");
-        sdk.init(Map, this);
-
-        setSupportActionBar(helptoolbar);
+        setSupportActionBar(helpToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Typeface canaro = Typeface.createFromAsset(getAssets(),"commercial/Canaro-LightDEMO.otf");
 
-        help_detail.setTypeface(canaro);
+        helpDetails.setTypeface(canaro);
         help.setTypeface(canaro);
-        TextView toolbar_thelp = (TextView) helptoolbar.findViewById(R.id.toolbar_title);
+        TextView toolbar_thelp = (TextView) helpToolbar.findViewById(R.id.toolbar_title);
         toolbar_thelp.setTypeface(canaro);
 
-        helptoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+   /*     helpToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
@@ -76,7 +65,7 @@ public class Help extends AppCompatActivity {
 
                 return false;
             }
-        });
+        });*/
 
     }
 
@@ -98,45 +87,12 @@ public class Help extends AppCompatActivity {
         return true;
     }
 
-    public void openWall()
-    {
-        try
-        {
-            Class<?> aClass = Class
-                    .forName("com.mobvista.msdk.shell.MVActivity");
-            Intent intent = new Intent(this, aClass);
-            intent.putExtra(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");   //Unit Id
-            this.startActivity(intent);
-        } catch (Exception e) {
-            Log.e("MVActivity", "", e);
-        }
-    }
 
     @Override
     public void onResume() {
         super.onResume();
-        preloadWall();
-        loadHandler();
         mTracker.setScreenName("Help");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
-    public void preloadWall() {
-        MobVistaSDK sdk = MobVistaSDKFactory.getMobVistaSDK();
-        Map<String, Object> preloadMap = new HashMap<String, Object>();
-        preloadMap.put(MobVistaConstans.PROPERTIES_LAYOUT_TYPE, MobVistaConstans.LAYOUT_APPWALL);
-        preloadMap.put(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");
-        sdk.preload(preloadMap);
-    }
-
-    public void loadHandler()
-    {
-        Map<String, Object> properties = MvWallHandler.getWallProperties("14445");
-        properties.put(MobVistaConstans.PROPERTIES_WALL_STATUS_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_NAVIGATION_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_TITLE_BACKGROUND_COLOR, R.color.mobvista_facebook);
-        MvWallHandler mvHandler = new MvWallHandler(properties, this);
-
-        mvHandler.load();
-    }
 }

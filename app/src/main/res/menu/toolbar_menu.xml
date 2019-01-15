@@ -13,12 +13,12 @@
 
             />-->
 
-        <item
+       <!-- <item
             android:title="explore"
             android:orderInCategory="100"
-            app:showAsAction="always"
+            app:showAsAction="never"
             android:id="@+id/explore"
               android:icon="@drawable/ic_card_giftcard_white_36dp"
-            />
+            />-->
 
 </menu>

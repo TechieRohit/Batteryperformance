@@ -11,6 +11,8 @@ import android.os.BatteryManager;
 import android.os.IBinder;
 import android.provider.Settings;
 
+import performance.cleaner.codebreaker.batteryperformance.utils.Constants;
+
 
 public class Ringtone_service extends Service {
     MediaPlayer ringtone;
@@ -35,8 +37,8 @@ public class Ringtone_service extends Service {
     {
         Alarm_states = getSharedPreferences("ALARM",MODE_PRIVATE);
 
-        actual_seek_value = Alarm_states.getInt("alarm_percentage", 0);
-        actual_state = Alarm_states.getInt("alarm_state",0);
+        actual_seek_value = Alarm_states.getInt(Constants.IntentKeys.ALARM_PERCENTAGE, 0);
+        actual_state = Alarm_states.getInt(Constants.IntentKeys.ALARM_STATE,0);
 
         ringtone = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI);
 

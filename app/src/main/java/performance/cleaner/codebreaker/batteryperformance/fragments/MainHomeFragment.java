@@ -1,7 +1,7 @@
 package performance.cleaner.codebreaker.batteryperformance.fragments;
 
 /**
- * Created by J!MMY on 12/10/2016.
+ * Created by ROHIT on 12/10/2016.
  */
 
 import android.content.BroadcastReceiver;
@@ -36,10 +36,9 @@ import com.google.android.gms.analytics.Tracker;
 
 import at.grabner.circleprogress.CircleProgressView;
 import at.grabner.circleprogress.UnitPosition;
-import performance.cleaner.codebreaker.batteryperformance.utils.HealthClass;
 
 /**
- * Created by J!MMY on 12/9/2016.
+ * Created by ROHIT on 12/9/2016.
  */
 public class MainHomeFragment extends Fragment
 {
@@ -222,7 +221,6 @@ public class MainHomeFragment extends Fragment
             temp_global = temp;
 
             StatusCircleView.setValueAnimated(level_global);
-            HealthClass heath = new HealthClass();
 
             int status = intent.getIntExtra("status", 0);
 

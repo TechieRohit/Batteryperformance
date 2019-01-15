@@ -20,18 +20,13 @@ import android.widget.TextView;
 import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
 import performance.cleaner.codebreaker.batteryperformance.service.Ringtone_service;
+import performance.cleaner.codebreaker.batteryperformance.utils.Constants;
+
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.mobvista.msdk.MobVistaConstans;
-import com.mobvista.msdk.MobVistaSDK;
-import com.mobvista.msdk.out.MobVistaSDKFactory;
-import com.mobvista.msdk.out.MvWallHandler;
-
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class Alarm extends AppCompatActivity
 {
@@ -79,9 +74,6 @@ public class Alarm extends AppCompatActivity
 
         SN = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        MobVistaSDK sdk = MobVistaSDKFactory.getMobVistaSDK(); Map<String,String> Map = sdk.getMVConfigurationMap("", "");
-        sdk.init(Map, this);
-
         Typeface canaro = Typeface.createFromAsset(getAssets(), "commercial/Canaro-LightDEMO.otf");
 
         message = (TextView) findViewById(R.id.toast);
@@ -101,7 +93,7 @@ public class Alarm extends AppCompatActivity
         setSupportActionBar(alarmtoolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        alarmtoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        /*alarmtoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
@@ -111,15 +103,14 @@ public class Alarm extends AppCompatActivity
                             .setCategory("Mintegral")
                             .setAction("Alarm Toolbar Button Clicked")
                             .build());
-                    openWall();
                 }
 
                 return false;
             }
-        });
+        });*/
 
-        alarm_state = Alarm_states.getInt("alarm_state", 0);
-        alarm_percentage = Alarm_states.getInt("alarm_percentage", 0);
+        alarm_state = Alarm_states.getInt(Constants.IntentKeys.ALARM_STATE, 0);
+        alarm_percentage = Alarm_states.getInt(Constants.IntentKeys.ALARM_PERCENTAGE, 0);
         seek_value.setProgress(alarm_percentage);
 
         seek_value.setNumericTransformer(new DiscreteSeekBar.NumericTransformer() {
@@ -149,8 +140,8 @@ public class Alarm extends AppCompatActivity
                     alarmView.setImageResource(R.drawable.ic_alarm_on_black_48dp);
 
                     SharedPreferences.Editor editor = Alarm_states.edit();
-                    editor.putInt("alarm_state", 1);
-                    editor.putInt("alarm_percentage", percentage);
+                    editor.putInt(Constants.IntentKeys.ALARM_STATE, 1);
+                    editor.putInt(Constants.IntentKeys.ALARM_PERCENTAGE, percentage);
                     editor.apply();
 
                     //get_notification();
@@ -236,78 +227,12 @@ public class Alarm extends AppCompatActivity
         return true;
     }
 
-    public void openWall()
-    {
-        try
-        {
-            Class<?> aClass = Class
-                    .forName("com.mobvista.msdk.shell.MVActivity");
-            Intent intent = new Intent(this, aClass);
-            intent.putExtra(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");   //Unit Id
-            this.startActivity(intent);
-        } catch (Exception e) {
-            Log.e("MVActivity", "", e);
-        }
-    }
-
     @Override
     public void onResume() {
         super.onResume();
-        preloadWall();
-        loadHandler();
 
         mTracker.setScreenName("Alarm");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
-
-    public void preloadWall() {
-        MobVistaSDK sdk = MobVistaSDKFactory.getMobVistaSDK();
-        Map<String, Object> preloadMap = new HashMap<String, Object>();
-        preloadMap.put(MobVistaConstans.PROPERTIES_LAYOUT_TYPE, MobVistaConstans.LAYOUT_APPWALL);
-        preloadMap.put(MobVistaConstans.PROPERTIES_UNIT_ID, "14445");
-        sdk.preload(preloadMap);
-    }
-
-    public void loadHandler()
-    {
-        Map<String, Object> properties = MvWallHandler.getWallProperties("14445");
-        properties.put(MobVistaConstans.PROPERTIES_WALL_STATUS_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_NAVIGATION_COLOR, R.color.mobvista_facebook);
-        properties.put(MobVistaConstans.PROPERTIES_WALL_TITLE_BACKGROUND_COLOR, R.color.mobvista_facebook);
-        MvWallHandler mvHandler = new MvWallHandler(properties, this);
-
-        mvHandler.load();
-    }
-
-
-    /*public void get_notification()
-    {
-
-        remoteViews = new RemoteViews(this.getPackageName(), R.layout.push_notification_alarm);
-
-        remoteViews.setTextViewText(R.id.alarm_set_to,"Battery Alarm is set to " + percentage + "%" );
-
-        //Building the notification
-        notify = new NotificationCompat.Builder(this);
-
-        //Building the notification
-        //for setting up notification icon
-        notify.setSmallIcon(R.drawable.ic_alarm_black_36dp);
-        notify.setContent(remoteViews);
-
-        //For making this notification sticky
-         notify.setOngoing(true);
-        //Applying click event on notification bar
-        Intent intent = new Intent(this.getApplicationContext(), Alarm.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this.getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        notify.setContentIntent(pendingIntent);
-        notify.setAutoCancel(true);
-        notify.getNotification().flags |= Notification.FLAG_AUTO_CANCEL;
-        //This thing below builds the notification
-
-        SN.notify(Unique_id, notify.build());
-    }*/
-
-
 
 }
