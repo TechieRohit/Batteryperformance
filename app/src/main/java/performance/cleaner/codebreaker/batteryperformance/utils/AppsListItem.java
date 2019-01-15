@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Utilities;
+package performance.cleaner.codebreaker.batteryperformance.utils;
 
 /**
  * Created by J!MMY on 7/2/2017.

@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Fragments;
+package performance.cleaner.codebreaker.batteryperformance.fragments;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -18,14 +18,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 
-public class slide_activity_2 extends Fragment {
+public class SlideFragment2 extends Fragment {
 
 
     private TextView Plugged_type;
@@ -234,7 +234,7 @@ public class slide_activity_2 extends Fragment {
 
         super.onResume();
         // Log.i(TAG, "Setting screen name: ");
-        mTracker.setScreenName("slide_activity_2");
+        mTracker.setScreenName("SlideFragment2");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 

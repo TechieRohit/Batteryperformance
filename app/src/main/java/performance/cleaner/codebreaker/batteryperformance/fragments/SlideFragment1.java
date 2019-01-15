@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Fragments;
+package performance.cleaner.codebreaker.batteryperformance.fragments;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -25,7 +25,7 @@ import com.google.android.gms.analytics.Tracker;
 import java.text.DecimalFormat;
 
 
-public class slide_activity_1 extends Fragment {
+public class SlideFragment1 extends Fragment {
 
     private TextView voltage_lev;
     private TextView temperature_lev;
@@ -99,7 +99,7 @@ public class slide_activity_1 extends Fragment {
                     @Override
                     public void run() {
                         Intent to_alarm = new Intent(getActivity(),
-                                performance.cleaner.codebreaker.batteryperformance.Activities.Alarm.class);
+                                performance.cleaner.codebreaker.batteryperformance.activities.Alarm.class);
                         startActivity(to_alarm);
 
                     }
@@ -144,7 +144,7 @@ public class slide_activity_1 extends Fragment {
 
         super.onResume();
         // Log.i(TAG, "Setting screen name: ");
-        mTracker.setScreenName("slide_activity_1");
+        mTracker.setScreenName("SlideFragment1");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 

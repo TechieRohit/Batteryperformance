@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Fragments;
+package performance.cleaner.codebreaker.batteryperformance.fragments;
 
 /**
  * Created by J!MMY on 12/10/2016.
@@ -24,24 +24,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import performance.cleaner.codebreaker.batteryperformance.Activities.Cache_Cleaning;
-import performance.cleaner.codebreaker.batteryperformance.Fragment_Trigger.Side_fragments_1;
-import performance.cleaner.codebreaker.batteryperformance.Fragment_Trigger.Side_fragments_2;
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.activities.Cache_Cleaning;
+import performance.cleaner.codebreaker.batteryperformance.fragmenttriggers.Trigger1;
+import performance.cleaner.codebreaker.batteryperformance.fragmenttriggers.Trigger2;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
-import performance.cleaner.codebreaker.batteryperformance.Services.time_since_last_charged;
+import performance.cleaner.codebreaker.batteryperformance.service.SinceLastChargedService;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import at.grabner.circleprogress.CircleProgressView;
 import at.grabner.circleprogress.UnitPosition;
-import performance.cleaner.codebreaker.batteryperformance.Utilities.HealthClass;
+import performance.cleaner.codebreaker.batteryperformance.utils.HealthClass;
 
 /**
  * Created by J!MMY on 12/9/2016.
  */
-public class slide_activity extends Fragment
+public class MainHomeFragment extends Fragment
 {
 
     private TextView time_left_lev;
@@ -127,7 +127,7 @@ public class slide_activity extends Fragment
 
                         battery_performance_FragmentManager_2 = getActivity().getSupportFragmentManager();
                         battery_performance_FragmentTransaction_2 = battery_performance_FragmentManager_2.beginTransaction();
-                        battery_performance_FragmentTransaction_2.replace(R.id.containerView, new Side_fragments_1()).addToBackStack(null).commit();
+                        battery_performance_FragmentTransaction_2.replace(R.id.containerView, new Trigger1()).addToBackStack(null).commit();
                     }
                 }, 500);// .5 sec
             }
@@ -174,7 +174,7 @@ public class slide_activity extends Fragment
 
                         battery_performance_FragmentManager_2 = getActivity().getSupportFragmentManager();
                         battery_performance_FragmentTransaction_2 = battery_performance_FragmentManager_2.beginTransaction();
-                        battery_performance_FragmentTransaction_2.replace(R.id.containerView, new Side_fragments_2()).addToBackStack(null).commit();
+                        battery_performance_FragmentTransaction_2.replace(R.id.containerView, new Trigger2()).addToBackStack(null).commit();
                     }
                 }, 500);// .5 sec
             }
@@ -189,7 +189,7 @@ public class slide_activity extends Fragment
         time_since_last_charged_1.setTypeface(canaro);
         time_left_type.setTypeface(canaro);
 
-        Intent start = new Intent( getActivity(),time_since_last_charged.class);
+        Intent start = new Intent( getActivity(),SinceLastChargedService.class);
         getActivity().startService(start);
 
         //Here this function will register battery_performance_receiver
@@ -209,8 +209,6 @@ public class slide_activity extends Fragment
         getActivity().registerReceiver(battery_performance_receiver, filter);  //WHY WE HAVE USE FILTER?
     }
 
-
-
     private BroadcastReceiver battery_performance_receiver = new BroadcastReceiver()
     {
         @Override
@@ -224,11 +222,7 @@ public class slide_activity extends Fragment
             temp_global = temp;
 
             StatusCircleView.setValueAnimated(level_global);
-//            Optimize.stopSpinning();
-
-
             HealthClass heath = new HealthClass();
-          //  health_lev.setText(heath.getHealth(health));
 
             int status = intent.getIntExtra("status", 0);
 
@@ -326,7 +320,7 @@ public class slide_activity extends Fragment
         super.onResume();
 
        // Log.i(TAG, "Setting screen name: ");
-        mTracker.setScreenName("slide_activity");
+        mTracker.setScreenName("MainHomeFragment");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 

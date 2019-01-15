@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Activities;
+package performance.cleaner.codebreaker.batteryperformance.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 
-public class Rate_me extends Activity
+public class RateIt extends Activity
 {
     private RatingBar rate_me;
     private TextView later;
@@ -88,7 +88,7 @@ public class Rate_me extends Activity
                 }
                 else
                 {
-                    Toast.makeText(Rate_me.this, "Rated successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RateIt.this, "Rated successfully",Toast.LENGTH_LONG).show();
                     finish();
                 }
             }

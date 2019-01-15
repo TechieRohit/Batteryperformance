@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Fragment_Trigger;
+package performance.cleaner.codebreaker.batteryperformance.fragmenttriggers;
 
 /**
  * Created by J!MMY on 12/10/2016.
@@ -16,15 +16,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import performance.cleaner.codebreaker.batteryperformance.Fragments.slide_activity_1;
-import performance.cleaner.codebreaker.batteryperformance.Fragments.slide_activity_2;
+import performance.cleaner.codebreaker.batteryperformance.fragments.SlideFragment1;
+import performance.cleaner.codebreaker.batteryperformance.fragments.SlideFragment2;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 
 /**
  * Created by Ratan on 7/27/2015.
  */
-public class Side_fragments_2 extends Fragment {
+public class Trigger1 extends Fragment {
 
     public static TabLayout tabLayout_2;
     public static ViewPager viewPager_2;
@@ -81,10 +81,10 @@ public class Side_fragments_2 extends Fragment {
             switch (position)
             {
                 case 0:
-                    return new slide_activity_2();
+                    return new SlideFragment1();
 
                 case 1:
-                    return new slide_activity_1();
+                    return new SlideFragment2();
             }
             return null;
         }
@@ -94,5 +94,6 @@ public class Side_fragments_2 extends Fragment {
         {
             return int_items;
         }
+
     }
 }

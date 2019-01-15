@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Services;
+package performance.cleaner.codebreaker.batteryperformance.service;
 
 import android.Manifest;
 import android.app.Service;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-import performance.cleaner.codebreaker.batteryperformance.Utilities.AppsListItem;
+import performance.cleaner.codebreaker.batteryperformance.utils.AppsListItem;
 
 public class CleanerService extends Service
 {

@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Fragments;
+package performance.cleaner.codebreaker.batteryperformance.fragments;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -30,10 +30,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
-import performance.cleaner.codebreaker.batteryperformance.Services.CleanerService;
-import performance.cleaner.codebreaker.batteryperformance.Utilities.AppsListItem;
+import performance.cleaner.codebreaker.batteryperformance.service.CleanerService;
+import performance.cleaner.codebreaker.batteryperformance.utils.AppsListItem;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;

@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Services;
+package performance.cleaner.codebreaker.batteryperformance.service;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,11 +14,11 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
-import performance.cleaner.codebreaker.batteryperformance.Activities.Activity_Main;
+import performance.cleaner.codebreaker.batteryperformance.activities.Activity_Main;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 
-public class time_left extends Service {
+public class TimeLeftService extends Service {
 
     int previous_level = 0;
 
@@ -244,7 +244,7 @@ public class time_left extends Service {
                         editor_hours.putLong("dis_hours", output_discharging_hour);
                         editor_hours.apply();
 
-                       // Toast.makeText(getApplicationContext(),"Open_source " + output_discharging_hour + "Hours " + output_charging_min_actual + "mins" ,Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(),"OpenSource " + output_discharging_hour + "Hours " + output_charging_min_actual + "mins" ,Toast.LENGTH_LONG).show();
                         previous_level = 0;
                     }
 

@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Fragment_Trigger;
+package performance.cleaner.codebreaker.batteryperformance.fragmenttriggers;
 
 /**
  * Created by J!MMY on 12/10/2016.
@@ -15,7 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import performance.cleaner.codebreaker.batteryperformance.Fragments.slide_activity;
+import performance.cleaner.codebreaker.batteryperformance.fragments.MainHomeFragment;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 
@@ -74,7 +74,7 @@ public class Home_Tab extends Fragment {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new slide_activity();
+                    return new MainHomeFragment();
 
             }
             return null;

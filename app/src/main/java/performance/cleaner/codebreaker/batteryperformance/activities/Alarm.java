@@ -1,8 +1,6 @@
-package performance.cleaner.codebreaker.batteryperformance.Activities;
+package performance.cleaner.codebreaker.batteryperformance.activities;
 
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -16,13 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RemoteViews;
-import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
-import performance.cleaner.codebreaker.batteryperformance.Services.Ringtone_service;
+import performance.cleaner.codebreaker.batteryperformance.service.Ringtone_service;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.mobvista.msdk.MobVistaConstans;

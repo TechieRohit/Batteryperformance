@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Activities;
+package performance.cleaner.codebreaker.batteryperformance.activities;
 
 
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 import com.google.android.gms.analytics.HitBuilders;

@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Activities;
+package performance.cleaner.codebreaker.batteryperformance.activities;
 
 
 import android.content.Intent;
@@ -16,11 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import performance.cleaner.codebreaker.batteryperformance.Fragment_Trigger.Home_Tab;
-import performance.cleaner.codebreaker.batteryperformance.Fragments.slide_activity;
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.fragmenttriggers.Home_Tab;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
-import performance.cleaner.codebreaker.batteryperformance.Services.time_left;
+import performance.cleaner.codebreaker.batteryperformance.service.TimeLeftService;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.mobvista.msdk.MobVistaConstans;
@@ -207,7 +206,7 @@ public class Activity_Main extends AppCompatActivity
                             .setAction("Rate me Clicked")
                             .build());
                     battery_performance_DrawerLayout.closeDrawers();
-                    startActivity(new Intent(Activity_Main.this, Rate_me.class));
+                    startActivity(new Intent(Activity_Main.this, RateIt.class));
                 }
 
                 if (menuItem.getItemId() == R.id.nav_menu_about) {
@@ -235,7 +234,7 @@ public class Activity_Main extends AppCompatActivity
          * Setup Drawer Toggle of the Toolbar
          */
 
-        Intent time_service = new Intent(Activity_Main.this,time_left.class);
+        Intent time_service = new Intent(Activity_Main.this,TimeLeftService.class);
         startService(time_service);
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_battery);

@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Services;
+package performance.cleaner.codebreaker.batteryperformance.service;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Google_Tracker;
+package performance.cleaner.codebreaker.batteryperformance.googletracker;
 
 
 import android.app.Application;

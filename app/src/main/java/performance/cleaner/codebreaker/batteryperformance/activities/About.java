@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Activities;
+package performance.cleaner.codebreaker.batteryperformance.activities;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -56,7 +56,7 @@ public class About extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent to_open_source = new Intent(About.this,Open_source.class);
+                Intent to_open_source = new Intent(About.this,OpenSource.class);
                 startActivity(to_open_source);
             }
         });

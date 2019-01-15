@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Services;
+package performance.cleaner.codebreaker.batteryperformance.service;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -12,7 +12,7 @@ import android.preference.PreferenceManager;
 /**
  * Created by J!MMY on 2/8/2017.
  */
-public class time_since_last_charged extends Service
+public class SinceLastChargedService extends Service
 {
 
     long start_time ;

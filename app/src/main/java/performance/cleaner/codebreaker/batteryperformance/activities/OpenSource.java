@@ -1,4 +1,4 @@
-package performance.cleaner.codebreaker.batteryperformance.Activities;
+package performance.cleaner.codebreaker.batteryperformance.activities;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,13 +7,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import performance.cleaner.codebreaker.batteryperformance.Google_Tracker.AnalyticsApplication;
+import performance.cleaner.codebreaker.batteryperformance.googletracker.AnalyticsApplication;
 import performance.cleaner.codebreaker.batteryperformance.R;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
-public class Open_source extends AppCompatActivity
+public class OpenSource extends AppCompatActivity
 {
     private Tracker mTracker;
 
@@ -81,7 +81,7 @@ public class Open_source extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
-        mTracker.setScreenName("Open_source");
+        mTracker.setScreenName("OpenSource");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
