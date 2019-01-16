@@ -24,3 +24,8 @@ Icons are provided by [Material Icons](https://material.io/icons/) under the Apa
 ## Open Source Libraries used -
 * [discreteSeekBar](https://github.com/AnderWeb/discreteSeekBar)
 * [Circle-Progress-View](https://github.com/jakob-grabner/Circle-Progress-View)
+* [Loading](https://github.com/yankai-victor/Loading)
+  ### Notice for files - 
+  * [IPackageDataObserver.aidl](https://github.com/mzlogin/CleanExpert/tree/master/app/src/main/aidl/android/content/pm)
+  * [IPackageStatsObserver.aidl](https://github.com/mzlogin/CleanExpert/tree/master/app/src/main/aidl/android/content/pm)
+  * [PackageStats.aidl](https://github.com/mzlogin/CleanExpert/tree/master/app/src/main/aidl/android/content/pm)
