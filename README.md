@@ -11,7 +11,7 @@ The user is continuously notified of the battery level, temperature and time lef
 * Battery Alarm
 * External Cache Cleaner
 
-##License
+## License
 This application is Free Software: You can use, study share and improve it at your
 will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
@@ -20,6 +20,6 @@ published by the Free Software Foundation, either version 3 of the License, or
 
 Icons are provided by [Material Icons](https://material.io/icons/) under the Apache 2 license.
 
-##Open Source Libraries used -
-*[discreteSeekBar](https://github.com/AnderWeb/discreteSeekBar)
-*[Circle-Progress-View](https://github.com/jakob-grabner/Circle-Progress-View)
+## Open Source Libraries used -
+* [discreteSeekBar](https://github.com/AnderWeb/discreteSeekBar)
+* [Circle-Progress-View](https://github.com/jakob-grabner/Circle-Progress-View)
