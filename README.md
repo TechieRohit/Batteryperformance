@@ -1,6 +1,7 @@
 # Battery Performance + Cache Cleaner
 
 This  is a  battery  utility Android  app that gives the  user  almost  each  and  every  detail of  the battery they are  using  in  their  phone  like  voltage, capacity, battery  type  etc, along with the  battery time  left  on the  current  status  with  some  other  useful functionalities  like one touch cache cleaner that cleans the phone’s internal and external cache.
+
 Also implemented a battery alarm that users can set on the desired battery status to get notified.
 Worked on BroadcastReceiver, Services, third party libraries for user animations etc.
 The user is continuously notified of the battery level, temperature and time left on the current status.
